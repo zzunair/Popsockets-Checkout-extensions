@@ -1,0 +1,44 @@
+# query RunInput {
+#   paymentCustomization {
+#     metafield(namespace: "$app:payment-customization", key: "function-configuration") {
+#       value
+#     }
+#   }
+# }
+
+
+# query RunInput {
+#   paymentCustomization {
+#     metafield(namespace: "$app:payment-customization", key: "function-configuration") {
+#       value
+#     }
+#   }
+#   cart {
+#     buyerIdentity {
+#       customer {
+#         tags
+#       }
+#     }
+#   }
+# }
+
+
+
+query RunInput {
+  cart {
+    cost {
+      totalAmount {
+        amount
+      }
+    }
+    buyerIdentity{
+      customer{
+        hasAnyTag(tags: "check")
+      }
+    }
+  }
+  paymentMethods {
+    id
+    name
+  }
+}
